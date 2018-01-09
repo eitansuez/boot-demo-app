@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -16,4 +17,13 @@ public class HelloController {
     return map;
   }
 
+  @GetMapping("/hello/{who}")
+  public Map sayHello(@PathVariable String who) {
+    Map<String, String> map = new HashMap<>();
+
+    String message = String.format("Hello %s", who);
+    map.put("message", message);
+
+    return map;
+  }
 }
