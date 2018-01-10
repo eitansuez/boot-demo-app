@@ -20,10 +20,22 @@ public class TodoController {
 
     LocalDate nextWeek = LocalDate.now().plus(7, ChronoUnit.DAYS);
 
-    todoList.add(Todo.builder().title("Shop").description("Go shopping ahead of trip").dueDate(nextWeek).build());
-    todoList.add(Todo.builder().title("Pack").description("Be sure to pack your things").dueDate(nextWeek).build());
-    todoList.add(Todo.builder().title("Drive").description("Drive to the airport").dueDate(nextWeek).build());
-    todoList.add(Todo.builder().title("Fly").description("Fly to some mysterious destination").dueDate(nextWeek).build());
+    todoList.add(Todo.builder()
+        .title("Shop")
+        .description("Go shopping ahead of trip")
+        .dueDate(nextWeek).build());
+    todoList.add(Todo.builder()
+        .title("Pack")
+        .description("Be sure to pack your things")
+        .dueDate(nextWeek).build());
+    todoList.add(Todo.builder()
+        .title("Drive")
+        .description("Drive to the airport")
+        .dueDate(nextWeek).build());
+    todoList.add(Todo.builder()
+        .title("Fly")
+        .description("Fly to some mysterious destination")
+        .dueDate(nextWeek).build());
   }
 
   @GetMapping("/todos")
