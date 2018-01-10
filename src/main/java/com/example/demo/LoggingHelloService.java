@@ -22,7 +22,6 @@ public class LoggingHelloService implements HelloService {
   @Override
   public void greet() {
     logger.info("{} world", greeting);
-    logger.debug("exiting run method..");
   }
 
 }
