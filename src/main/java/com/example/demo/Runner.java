@@ -14,9 +14,9 @@ public class Runner implements CommandLineRunner {
   private final Logger logger = LoggerFactory.getLogger(Runner.class);
 
   private final HelloService helloService;
-  private final TodoRepository todoRepository;
+  private final TodoJpaRepository todoRepository;
 
-  public Runner(HelloService helloService, TodoRepository todoRepository) {
+  public Runner(HelloService helloService, TodoJpaRepository todoRepository) {
     this.helloService = helloService;
     this.todoRepository = todoRepository;
   }
