@@ -18,8 +18,8 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.any;
 import static org.mockito.Matchers.anyLong;
-import static org.mockito.Matchers.anyObject;
 import static org.mockito.Mockito.when;
 import static org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT;
 
@@ -31,7 +31,7 @@ public class TodoRestControllerTests {
   private TestRestTemplate template;
 
   @MockBean
-  private TodoRepository repository;
+  private TodoJpaRepository repository;
   private Todo todo1;
 
   @Before
@@ -47,7 +47,7 @@ public class TodoRestControllerTests {
     when(repository.findById(1L)).thenReturn(Optional.of(todo1));
     when(repository.findById(2L)).thenReturn(Optional.of(todo2));
 
-    when(repository.save(anyObject())).thenReturn(todo1);
+    when(repository.save(any(Todo.class))).thenReturn(todo1);
   }
 
   @Test

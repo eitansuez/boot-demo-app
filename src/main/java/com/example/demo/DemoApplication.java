@@ -19,11 +19,6 @@ public class DemoApplication {
   }
 
   @Bean
-  public TodoRepository todoRepository() {
-    return new InMemoryTodoRepository();
-  }
-
-  @Bean
   public ObjectMapper jsonObjectMapper() {
     return Jackson2ObjectMapperBuilder.json()
         .serializationInclusion(JsonInclude.Include.NON_NULL) // Don’t include null values

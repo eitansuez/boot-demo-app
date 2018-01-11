@@ -11,9 +11,9 @@ import java.util.Optional;
 @RequestMapping("/api/todos")
 public class TodoRestController {
 
-  private final TodoRepository repository;
+  private final TodoJpaRepository repository;
 
-  public TodoRestController(TodoRepository repository) {
+  public TodoRestController(TodoJpaRepository repository) {
     this.repository = repository;
   }
 
