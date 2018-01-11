@@ -15,9 +15,13 @@ dependencies {
   compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
   compile 'org.springframework.boot:spring-boot-devtools'
 
-  compile("com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.3")
+  compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.9.3'
+  compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+  compile 'org.hibernate:hibernate-java8'
 
   compileOnly 'org.projectlombok:lombok'
+
+  runtime 'com.h2database:h2'
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
