@@ -5,3 +5,11 @@ logging:
 
 hello:
   greeting: Bonjour
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/todos
+    username: todo_user
+    password: secret
+  jpa:
+    generate-ddl: true
