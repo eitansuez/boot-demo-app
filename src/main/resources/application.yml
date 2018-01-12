@@ -13,3 +13,9 @@ spring:
     password: secret
   jpa:
     generate-ddl: true
+
+# disable security for management endpoints:
+management:
+  security:
+    enabled: false
+
