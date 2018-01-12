@@ -29,4 +29,8 @@ public class TodoService {
   public void delete(Todo todo) {
     todoRepository.delete(todo);
   }
+
+  public boolean isEmpty() {
+    return todoRepository.count() == 0;
+  }
 }

@@ -25,6 +25,15 @@ public class Runner implements CommandLineRunner {
   public void run(String... args) {
     helloService.greet();
 
+
+    if (todoService.isEmpty()) {
+      initializeTodos();
+    }
+
+    logger.debug("exiting run method..");
+  }
+
+  private void initializeTodos() {
     LocalDate nextWeek = LocalDate.now().plus(7, ChronoUnit.DAYS);
 
     todoService.addTodo(Todo.builder()
@@ -43,8 +52,5 @@ public class Runner implements CommandLineRunner {
         .title("Fly")
         .description("Fly to some mysterious destination")
         .dueDate(nextWeek).build());
-
-
-    logger.debug("exiting run method..");
   }
 }
