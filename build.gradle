@@ -34,3 +34,13 @@ dependencies {
 
   testCompile 'org.springframework.boot:spring-boot-starter-test'
 }
+
+task bootRunMysql(type: org.springframework.boot.gradle.run.BootRunTask, dependsOn: 'build') {
+  group = 'Application'
+  description = 'Run the boot applicatoin with the mysql profile'
+  doFirst() {
+    main = project.mainClassName
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperty 'spring.profiles.active', 'mysql'
+  }
+}

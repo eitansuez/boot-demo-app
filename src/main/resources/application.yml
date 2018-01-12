@@ -6,14 +6,6 @@ logging:
 hello:
   greeting: Bonjour
 
-spring:
-  datasource:
-    url: jdbc:mysql://localhost:3306/todos
-    username: todo_user
-    password: secret
-  jpa:
-    generate-ddl: true
-
 # disable security for management endpoints:
 management:
   security:
@@ -26,4 +18,14 @@ endpoints:
     enabled: false
   shutdown:
     enabled: true
+
+---
+spring:
+  profiles: mysql
+  datasource:
+    url: jdbc:mysql://localhost:3306/todos
+    username: todo_user
+    password: secret
+  jpa:
+    generate-ddl: true
 
