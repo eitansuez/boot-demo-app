@@ -11,35 +11,35 @@ import java.util.Optional;
 @RequestMapping("/api/todos")
 public class TodoRestController {
 
-  private final TodoJpaRepository repository;
+  private final TodoService service;
 
-  public TodoRestController(TodoJpaRepository repository) {
-    this.repository = repository;
+  public TodoRestController(TodoService service) {
+    this.service = service;
   }
 
   @GetMapping
   public List<Todo> list() {
-    return repository.findAll();
+    return service.findAll();
   }
 
   @GetMapping("{id}")
   public ResponseEntity<Todo> get(@PathVariable Long id) {
-    Optional<Todo> optional = repository.findById(id);
+    Optional<Todo> optional = service.findById(id);
     return optional.isPresent() ?
         ResponseEntity.ok(optional.get()) : ResponseEntity.notFound().build();
   }
 
   @PostMapping
   public ResponseEntity<Todo> create(@RequestBody Todo todo) {
-    Todo savedTodo = repository.save(todo);
+    Todo savedTodo = service.addTodo(todo);
     return new ResponseEntity<>(savedTodo, HttpStatus.CREATED);
   }
 
   @DeleteMapping("{id}")
   public ResponseEntity<Todo> delete(@PathVariable Long id) {
-    Optional<Todo> optional = repository.findById(id);
+    Optional<Todo> optional = service.findById(id);
     if (optional.isPresent()) {
-      repository.delete(optional.get());
+      service.delete(optional.get());
     }
     return ResponseEntity.noContent().build();
   }
