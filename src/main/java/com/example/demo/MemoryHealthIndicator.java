@@ -11,11 +11,12 @@ public class MemoryHealthIndicator implements HealthIndicator {
     Runtime runtime = Runtime.getRuntime();
     long freeMemory = runtime.freeMemory();
     long totalMemory = runtime.totalMemory();
-    double percentUsed = freeMemory / totalMemory;
+    double percentFree = freeMemory / (double) totalMemory;
 
-    Health.Builder builder = (percentUsed > 0.9) ? Health.down() : Health.up();
+    Health.Builder builder = (percentFree < 0.1) ? Health.down() : Health.up();
     return builder.withDetail("total", totalMemory)
         .withDetail("free", freeMemory)
+        .withDetail("percentFree", percentFree)
         .build();
   }
 }
