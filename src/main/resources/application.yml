@@ -19,3 +19,11 @@ management:
   security:
     enabled: false
 
+endpoints:
+  mappings:
+    enabled: false
+  beans:
+    enabled: false
+  shutdown:
+    enabled: true
+
