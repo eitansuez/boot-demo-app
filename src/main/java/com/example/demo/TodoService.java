@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.boot.actuate.metrics.CounterService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,13 +10,17 @@ import java.util.Optional;
 public class TodoService {
 
   private final TodoJpaRepository todoRepository;
+  private CounterService counter;
 
-  public TodoService(TodoJpaRepository todoRepository) {
+  public TodoService(TodoJpaRepository todoRepository, CounterService counter) {
     this.todoRepository = todoRepository;
+    this.counter = counter;
   }
 
   public Todo addTodo(Todo todo) {
-    return todoRepository.save(todo);
+    Todo added = todoRepository.save(todo);
+    counter.increment("demo.todos.added");
+    return added;
   }
 
   public List<Todo> findAll() {
