@@ -6,3 +6,5 @@ applications:
   random-route: true
   services:
   - todos_db
+  env:
+    SPRING_PROFILES_ACTIVE: mysql
