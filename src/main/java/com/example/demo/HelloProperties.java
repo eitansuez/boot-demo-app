@@ -5,7 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix="hello")
 public class HelloProperties {
 
-  private String greeting;
+  private String greeting = "Hello"; // default value
 
   public String getGreeting() {
     return greeting;

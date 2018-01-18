@@ -12,11 +12,7 @@ public class LoggingHelloService implements HelloService {
   private final String greeting;
 
   public LoggingHelloService(HelloProperties helloProperties) {
-    String greeting = helloProperties.getGreeting();
-    if (greeting == null) {
-      greeting = "Hello";
-    }
-    this.greeting = greeting;
+    this.greeting = helloProperties.getGreeting();
   }
 
   @Override
